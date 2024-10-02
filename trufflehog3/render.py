@@ -40,8 +40,7 @@ def text(issues: Iterable[Issue]) -> str:
     """
     environment = jinja2.Environment(
         loader=jinja2.FileSystemLoader(STATIC_DIR),
-        autoescape=False,  # no need to escape anything for plaintext format
-        auto_reload=False,
+        autoescape=True, auto_reload=False,
     )
     template = environment.get_template(TEXT_TEMPLATE_FILE)
     return template.render(issues=sorted(issues, key=_sort_keys), color=Color)
