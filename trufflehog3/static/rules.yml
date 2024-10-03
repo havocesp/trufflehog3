@@ -148,3 +148,7 @@
   message: Password in URL
   pattern: "[a-zA-Z]{3,10}://[^/\\s:@]{3,20}:[^/\\s:@]{3,20}@.{1,100}[\"'\\s]"
   severity: LOW
+- id: coinbaseadvanced.apikey
+  message: Coinbase Advanced APIKEY
+  pattern: ".*organizations\/.+"
+  severity: HIGH
