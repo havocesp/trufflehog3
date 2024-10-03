@@ -1,18 +1,4 @@
 exclude: # exclude matching issues
-  - message: Node modules directory
-    paths:
-      - node_modules/***
-  - message: venv directories
-    paths:
-      - venv/**
-      - .venv/**
-      - .env/**
-      - site-packages/**
-      - dist-packages/**
-  - message: Build directories
-    paths:
-      - build/**
-      - dist/**
   - message: Examples and data necessary for running auto-tests
     paths:
       - docs/*.html
@@ -25,6 +11,90 @@ exclude: # exclude matching issues
     pattern: sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx\+mdg3epi8=
     paths:
       - docs/templates/*.mako
+  - message: Not juicy directories
+    paths:
+      - translations
+      - trans
+      - lang
+      - language
+      - languages
+      - favicons
+      - icons
+      - font
+      - fonts
+      - style
+      - theme
+      - themes
+      - .cache
+      - .yarn
+      - wp-content/plugins
+      - l10n
+      - venv
+      - .venv
+      - site-packages
+      - dist-packages
+      - wp-include
+      - phpmyadmin
+      - native/ios
+      - locales
+      - integreat-test-cms
+      - integreat
+      - native/android
+      - bootstrap
+      - fontawesome
+      - font-awesome
+      - vendor
+      - vendors
+      - assets/*.png
+      - assets/*.jpg
+      - assets/*.jepg
+      - assets/*.gif
+      - assets/*.icon
+      - assets/*.ttf
+      - assets/*.woff
+      - assets/*.woff2
+      - assets/*.webp
+      - assets/*.ico
+      - assets/*.svg
+      - assets/*.svgz
+  - message: Not juicy file names
+    paths:
+      - poetry.lock
+      - package-lock.json
+      - flake.lock
+      - webpack.config.babel.js
+      - desktop.ini
+      - README
+      - README.md
+      - README.rst
+      - LICENSE.txt
+      - LICENSE
+      - go.sum
+      - yarn.lock
+      - package.json
+      - CODEOWNERS
+      - CONTRIBUTORS
+      - .prettierignore
+      - yarn.json
+      - .editorconfig
+      - robot.txt
+      - .Cargo.lock
+# - message: Not juicy file extensions
+# paths:
+# - \*\.css
+# - \*\.less
+# - \*\.scss
+# - \*\.map
+# - \*\.rst
+# - \*\.lock
+  - message: False positive matchs md5sum
+    pattern: (?i)md5sum-.+
+  - message: False positive matchs md5sum
+    pattern: (?i)sha56-.+
+  - message: False positive github commits
+    pattern: '[a-f0-9]{16}'
+  - message: False positive matchs hashes
+    pattern: (?i)hash.+
   - message: Integrity hash for materialize.min.css
     # NOTE pattern is re.Pattern, thus escaping of special characters might be required
     pattern: sha256-kpeCd0c1zTgJMsU\+s8Pz4CwckI73qwpdYMTxTsRyO8A=
@@ -68,7 +138,7 @@ no_entropy: false # disable entropy checks
 no_pattern: false # disable pattern checks
 
 #branch: master # name of the repo branch to scan
-depth: 50 # max commits depth for searching, only used if `no_history` is false
+depth: 250 # max commits depth for searching, only used if `no_history` is false
 since: null # scan from the given commit hash, only used if `no_history` is false
 no_current: false # disable current status check
 no_history: false # disable commit history check

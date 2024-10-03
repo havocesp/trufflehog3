@@ -8,7 +8,7 @@ from pathlib import Path
 from trufflehog3 import helper
 
 __NAME__ = "trufflehog3"
-__VERSION__ = "3.0.10"
+__VERSION__ = "3.0.2"
 
 HERE = Path(__file__).parent
 STATIC_DIR = HERE / "static"
@@ -17,7 +17,7 @@ TEXT_TEMPLATE_FILE = "report.text.j2"
 DEFAULT_RULES_FILE = STATIC_DIR / "rules.yml"
 
 DEFAULT_CONFIG_FILE = f".{__NAME__}.yml"
-DEFAULT_EXCLUDE_SET = {DEFAULT_CONFIG_FILE, ".git"}
+DEFAULT_EXCLUDE_SET = {DEFAULT_CONFIG_FILE, ".git", "node_modules", ".svn", "vendor", "vendors", "site-packages", "dist-packages", ".mypy_cache", "venv", ".venv"}
 
 # Inline 'nosecret' comment implementation taken from semgrep:
 # https://github.com/returntocorp/semgrep/blob/master/semgrep/semgrep/constants.py

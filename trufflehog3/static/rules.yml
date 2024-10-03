@@ -150,5 +150,5 @@
   severity: LOW
 - id: coinbaseadvanced.apikey
   message: Coinbase Advanced APIKEY
-  pattern: ".*organizations\/.+"
+  pattern: ".*organizations\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\/apiKeys\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}.*"
   severity: HIGH
