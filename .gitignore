@@ -1,17 +1,21 @@
 # python cache
-**/__pycache__/
+trufflehog3/__pycache__/
+__pycache__/**
+/__pycache__/**
 **/*.pyc
 
 # other cache
 *coverage*
 .*cache
 .pytest_cache
-.mypy_cache
+.mypy_cache/
 
 # build
-/build/
-/dist/
+build/**
+dist/**
 /*.egg-info/
+*.egg-info/
 /.idea/**
-
+.idea/
+venv/
 venv/**
