@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Core trufflehog3 logic."""
 
 import attr
@@ -20,7 +21,7 @@ from trufflehog3.models import (
     Model,
     Pattern,
     Rule,
-    Severity,
+    Severity
 )
 from trufflehog3.render import text, json, html
 from trufflehog3.search import search
@@ -31,7 +32,7 @@ def scan(
     target: str,
     config: Config,
     rules: Iterable[Union[Entropy, Pattern]],
-    processes: int,
+    processes: int
 ) -> Iterable[Issue]:
     """Return issues found during target path scan."""
     if config.no_entropy:  # pragma: no cover
@@ -80,7 +81,7 @@ def scan(
 def diff(
     old: Iterable[Issue],
     new: Iterable[Issue],
-    only_new: bool = False,
+    only_new: bool = False
 ) -> Iterable[Issue]:  # pragma: no cover
     """Return diff from the given lists of issues.
 
@@ -357,4 +358,4 @@ def write(raw: str, file: str = None):  # pragma: no cover
     if file:
         Path(file).write_text(raw)
     else:
-        sys.stdout.write(raw)
+        print(raw)

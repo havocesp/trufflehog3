@@ -77,7 +77,10 @@ def run(**kwargs):
         issues.extend(scan(target, config, rules, args.processes))
 
         if remote:  # pragma: no cover
-            tmp.cleanup()
+            if args.keep:
+                print(f" - [INFO] Keeping temporary directory: {tmp}")
+            else:
+                tmp.cleanup()
 
     if args.incremental:  # pragma: no cover
         issues = diff(load(Issue, args.incremental), issues, only_new=True)
@@ -185,6 +188,12 @@ def _get_cmdline_args(**defaults) -> argparse.Namespace:
         metavar="file",
         type=_file("r"),
         default=DEFAULT_RULES_FILE,
+    )
+    parser.add_argument(
+        '-k', '--keep',
+        help="keep temporary directory",
+        dest="keep",
+        action="store_true",
     )
     parser.add_argument(
         "-i",
